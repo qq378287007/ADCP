@@ -1,17 +1,10 @@
-git init
+git clone git@github.com:qq378287007/ADCP.git
 
 git remote add origin https://github.com/qq378287007/ADCP.git
 
+git init
 git add .
 git commit -m "update"
 
-
 git pull --rebase origin master
 git push origin master
-
-
-
-git clone git@github.com:qq378287007/ADCP.git
-
-
-

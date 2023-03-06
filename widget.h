@@ -15,6 +15,7 @@ public:
 
     void paintEvent(QPaintEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
+
 private:
     int data_width;
     int data_height;

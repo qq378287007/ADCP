@@ -3,16 +3,19 @@
 #include <QDebug>
 #include "widget.h"
 
-void data2image(double *data, int data_width, int start_col, QImage *image){
+void data2image(double *data, int data_width, int start_col, QImage *image)
+{
     int ind;
     int rgb;
     QRgb value;
-    for(int row=0;row<image->height();row++){
-        for(int col=0;col<image->width();col++){
-            ind = data_width*row+col+start_col;
+    for (int row = 0; row < image->height(); row++)
+    {
+        for (int col = 0; col < image->width(); col++)
+        {
+            ind = data_width * row + col + start_col;
             rgb = data[ind];
-            value = qRgb(rgb,rgb,rgb);
-            image->setPixelColor(col,row,value);
+            value = qRgb(rgb, rgb, rgb);
+            image->setPixelColor(col, row, value);
         }
     }
 }
@@ -21,10 +24,12 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
 {
     data_width = 1080;
     data_height = 120;
-    data = (double *)malloc(sizeof(double)*data_width*data_height);
-    for(int row=0;row<data_height;row++){
-        for(int col=0;col<data_width;col++){
-            data[data_width*row+col] = QRandomGenerator::global()->bounded(0, 255);
+    data = (double *)malloc(sizeof(double) * data_width * data_height);
+    for (int row = 0; row < data_height; row++)
+    {
+        for (int col = 0; col < data_width; col++)
+        {
+            data[data_width * row + col] = QRandomGenerator::global()->bounded(0, 255);
         }
     }
 
@@ -54,16 +59,18 @@ void Widget::paintEvent(QPaintEvent *)
 
 void Widget::keyPressEvent(QKeyEvent *event)
 {
-    switch (event->key()) {
+    switch (event->key())
+    {
     case Qt::Key_Left:
-        if(start_col+1 <= data_width-fixed_width)
+        if (start_col + 1 <= data_width - fixed_width)
         {
             start_col += 1;
             update();
         }
         break;
     case Qt::Key_Right:
-        if(start_col-1 >= 0){
+        if (start_col - 1 >= 0)
+        {
             start_col -= 1;
             update();
         }

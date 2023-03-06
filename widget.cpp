@@ -52,7 +52,6 @@ void Widget::paintEvent(QPaintEvent *)
     painter.drawImage(0, 0, *image);
 }
 
-
 void Widget::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
